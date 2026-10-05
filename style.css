@@ -1,0 +1,101 @@
+/* Blue-and-white visual theme, countdown and currency placement. */
+:root {
+    --ink: #14243d !important;
+    --muted: #61748b !important;
+    --pink: #e7f0ff !important;
+    --pink2: #f6f9ff !important;
+    --magenta: #2563eb !important;
+    --magenta-dark: #1d4ed8 !important;
+    --line: #dce7f5 !important;
+    --white: #ffffff !important;
+    --shadow: 0 20px 60px rgba(30, 64, 175, .12) !important;
+}
+
+[hidden] { display: none !important; }
+body {
+    background: radial-gradient(ellipse at 7% 0%, #ffffff 0, #f2f7ff 48%, #e6efff 100%) !important;
+}
+.brand-mark {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, .24) !important;
+}
+.hero {
+    background: linear-gradient(120deg, #153e75 0%, #2563eb 52%, #60a5fa 100%) !important;
+    box-shadow: 0 24px 60px rgba(30, 64, 175, .24) !important;
+}
+.eyebrow-dot { background: #bfdbfe !important; }
+.hero h1 span { color: #bfdbfe !important; }
+.hero p { color: #eff6ff !important; }
+.meta-pill { border-color: rgba(255,255,255,.48) !important; background: rgba(255,255,255,.14) !important; }
+.section-number { background: #eaf2ff !important; color: #1d4ed8 !important; }
+.field input, .field textarea { background: #fbfdff !important; }
+.field input:focus, .field textarea:focus {
+    border-color: #60a5fa !important;
+    box-shadow: 0 0 0 4px rgba(96,165,250,.22) !important;
+    background: #ffffff !important;
+}
+.captcha-question { background: #eaf2ff !important; color: #1d4ed8 !important; }
+.submit {
+    background: linear-gradient(110deg, #3b82f6, #1d4ed8) !important;
+    box-shadow: 0 11px 24px rgba(37,99,235,.24) !important;
+}
+.live-tag { color: #1d4ed8 !important; background: #eaf2ff !important; }
+.bid-row { border-color: #e0eaf7 !important; background: linear-gradient(90deg, #ffffff, #f7faff) !important; }
+.bid-row:first-child { border-color: #bfdbfe !important; background: linear-gradient(110deg, #eff6ff, #ffffff) !important; }
+.rank { color: #7186a0 !important; }
+.empty { background: #f6f9ff !important; }
+.db-note { color: #1e40af !important; background: #eff6ff !important; }
+.footer { color: #60758f !important; }
+.footer a { color: #1d4ed8; font-weight: 700; text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+.bid-table th { background: #eff6ff !important; }
+.bid-table tbody tr:first-child td { background: #f3f8ff !important; }
+.bid-table .price-cell {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    direction: ltr !important;
+    text-align: left !important;
+}
+.bid-table .price-cell .unit { order: 0; margin: 0; color: #526b89 !important; }
+.bid-table .price-cell bdi { order: 1; }
+
+.auction-countdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 22px;
+    padding: 15px 18px;
+    border: 1px solid rgba(191,219,254,.9);
+    border-radius: 20px;
+    background: rgba(255,255,255,.97);
+    color: #14243d;
+    box-shadow: 0 12px 30px rgba(15, 45, 100, .12);
+}
+.countdown-heading { display: grid; gap: 5px; flex: 1; min-width: 150px; }
+.countdown-kicker { color: #526b89; font-size: 11px; font-weight: 600; }
+.countdown-heading strong { color: #173b70; font-size: 14px; }
+.countdown-units { display: grid; grid-template-columns: repeat(4, minmax(54px, 1fr)); gap: 8px; direction: ltr; }
+.countdown-unit {
+    display: grid;
+    min-width: 54px;
+    direction: rtl;
+    justify-items: center;
+    gap: 2px;
+    padding: 7px 8px;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    background: #f2f7ff;
+}
+.countdown-unit strong { color: #1d4ed8; font-size: 20px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.countdown-unit span { color: #60758f; font-size: 10px; }
+.countdown-ended { margin: 0; color: #1d4ed8; font-size: 13px; font-weight: 800; }
+@media (max-width: 600px) {
+    .auction-countdown { align-items: stretch; flex-direction: column; gap: 12px; padding: 14px; }
+    .countdown-units { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+    .countdown-unit { min-width: 0; padding: 7px 3px; }
+    .countdown-unit strong { font-size: 17px; }
+    .countdown-heading strong { font-size: 12px; }
+}

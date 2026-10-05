@@ -1,0 +1,12 @@
+{
+  "name": "lkacom/domainseller",
+  "description": "Persian single-page PHP/MySQL auction bid collection site for sorati.ir",
+  "type": "project",
+  "require": {
+    "php": ">=8.1",
+    "ext-curl": "*",
+    "ext-mbstring": "*",
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*"
+  }
+}

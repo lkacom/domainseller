@@ -1,0 +1,11 @@
+# Local credentials / overrides
+config.local.php
+.env
+.env.*
+!.env.example
+
+# Runtime and editor files
+*.log
+.DS_Store
+.idea/
+.vscode/
