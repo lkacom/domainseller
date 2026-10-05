@@ -19,7 +19,7 @@ return [
         'username' => 'USERNAME',
         'api_key' => 'APIKEY',
         'admin_mobile' => '09121234567',
-        'admin_pattern_id' => 550993, // Approved admin pattern: {0}=full name, {1}=bidder mobile.
+        'admin_pattern_id' => 550993, // Approved admin pattern: {0}=bidder mobile, {1}=bid price.
         'user_pattern_id' => 550991,
     ],
     'app' => [

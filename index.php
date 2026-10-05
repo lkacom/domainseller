@@ -155,9 +155,11 @@ function sendPatternSms(array $smsConfig, string $to, int|string $patternId, arr
         return ['ok' => false, 'reference' => null, 'error' => 'PHP cURL extension is required'];
     }
 
-    // Keep pattern values as plain text; multiple template values are comma-separated.
+    // BaseServiceNumber expects one indexed text value per template variable.
+    // Preserve scalar text for the already-working one-variable user pattern.
     // Use the panel username and the API key in place of the panel password.
-    $patternText = implode(',', array_map(static fn($v) => str_replace(',', ' ', (string) $v), $variables));
+    $patternValues = array_map(static fn($v) => str_replace(',', ' ', (string) $v), $variables);
+    $patternText = count($patternValues) === 1 ? $patternValues[0] : array_values($patternValues);
     $payload = http_build_query([
         'username' => $smsConfig['username'],
         'password' => $smsConfig['api_key'],
@@ -278,7 +280,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 
             $userSms = sendPatternSms($smsConfig, $mobile, $smsConfig['user_pattern_id'], [$fullName]);
             if ($userSms['ok']) {
-                $adminSms = sendPatternSms($smsConfig, normalizeMobile((string) $smsConfig['admin_mobile']), $smsConfig['admin_pattern_id'], [$fullName, $mobile]);
+                $adminSms = sendPatternSms($smsConfig, normalizeMobile((string) $smsConfig['admin_mobile']), $smsConfig['admin_pattern_id'], [$mobile, $digitsPrice]);
             } else {
                 $adminSms = ['ok' => false, 'reference' => null, 'error' => 'Skipped because user SMS was not accepted'];
             }
